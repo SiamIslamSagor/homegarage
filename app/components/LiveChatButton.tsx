@@ -317,7 +317,7 @@ const LiveChatButton = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-24 right-6 w-96 h-[500px] bg-white rounded-lg shadow-2xl z-50 flex flex-col"
+            className="fixed bottom-24 duration-300 right-6 max-md:w-72 w-96 h-[500px] bg-white rounded-lg shadow-2xl z-50 flex flex-col"
           >
             {/* Chat Header */}
             <div className="p-4 bg-blue-500 text-white rounded-t-lg flex items-center justify-between">
@@ -444,7 +444,7 @@ const LiveChatButton = () => {
                       : "Type your message..."
                   }
                   disabled={isSpamBlocked || cooldownActive}
-                  className={`flex-1 border rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  className={`flex-1 border rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 max-md:max-w-52 ${
                     isSpamBlocked || cooldownActive
                       ? "bg-gray-100 cursor-not-allowed"
                       : ""

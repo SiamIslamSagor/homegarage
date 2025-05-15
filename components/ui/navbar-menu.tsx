@@ -82,12 +82,12 @@ export const Menu = ({
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
       className={cn(
-        "relative rounded-full border border-transparent duration-300 bg-blue-700 shadow-input flex justify-between items-center space-x-4 px-10 py-6",
+        "relative rounded-full border border-transparent duration-300 bg-blue-700 shadow-input flex justify-between items-center space-x-4 px-10 py-6 max-xl:mx-10",
         isScrolled ? " py-4 px-8" : " py-6 px-10"
       )}
     >
       {/* Logo */}
-      <div className="flex-shrink-0">
+      <div className="flex-shrink---0">
         <Link href="/" className="flex items-center">
           <Image
             src={logo}

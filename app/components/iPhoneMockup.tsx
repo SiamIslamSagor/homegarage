@@ -83,7 +83,7 @@ const IPhoneMockup = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-[390px] h-[844px] mx-auto perspective-1000 top_section"
+      className="relative w-[320px] h-[500px] md:w-[390px] md:h-[844px] mx-auto perspective-1000 top_section"
     >
       <div
         ref={cardRef}

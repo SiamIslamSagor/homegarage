@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <div
       id="hero_section"
-      className="mt-16 relative h-screen flex items-center justify-between overflow-hidden container max-w-7xl mx-auto"
+      className="mt-16 max-md:mt-20 relative min-h-screen flex items-center justify-between overflow-hidden container max-w-7xl mx-auto max-md:flex-col max-md:gap-10 max-md:pb-40 max-xl:px-10"
     >
       {/* Background SVG Elements */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
@@ -76,7 +76,7 @@ const Hero = () => {
       </div>
 
       {/* Left Content */}
-      <div className="w-full md:w-1/2 space-y-8 z-10">
+      <div className="w-full md:w-1/2 space-y-8 z-10 max-md:px-4">
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
           Transform Your Garage Into Smart Space
         </h1>
@@ -262,7 +262,7 @@ const Hero = () => {
       </div>
 
       {/* Right Content - iPhone Mockup */}
-      <div className="hidden md:block relative">
+      <div className=" relative max-md:">
         <IPhoneMockup />
       </div>
     </div>
