@@ -1,6 +1,7 @@
 "use client";
 
 import Hero from "@/app/components/Hero";
+import Navbar from "@/app/components/Navbar";
 import NewNavbar from "@/app/components/NewNavbar";
 import BookMechanicSection from "@/app/components/sections/BookMechanicSection";
 import BuySellSection from "@/app/components/sections/BuySellSection";
@@ -11,6 +12,7 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
+import { NavbarDemo } from "../ui/acui-navbar";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,14 +41,16 @@ const Home = () => {
   return (
     <div
       ref={containerRef}
-      className="min-h-screen bg-black text-white overflow-hidden relative"
+      className="min-h-screen bg-white text-black overflow-hidden relative"
     >
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-blue-500 origin-left z-50"
         style={{ scaleX }}
       />
 
-      <NewNavbar />
+      {/* <NewNavbar /> */}
+      <NavbarDemo />
+      {/* <Navbar /> */}
 
       {/* Main Content */}
       <div className="relative min-h-screen bg-white">

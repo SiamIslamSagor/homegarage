@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <div
       id="hero_section"
-      className="relative h-screen flex items-center justify-between overflow-hidden container max-w-7xl mx-auto"
+      className="mt-16 relative h-screen flex items-center justify-between overflow-hidden container max-w-7xl mx-auto"
     >
       {/* Background SVG Elements */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
