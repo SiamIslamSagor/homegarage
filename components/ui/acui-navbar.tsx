@@ -144,7 +144,7 @@ function Navbar({ className }: { className?: string }) {
     },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
-    { name: "Admin", href: "/admin" },
+    // { name: "Admin", href: "/admin" },
   ];
 
   const isProductSubItem = (

@@ -81,9 +81,9 @@ const Hero = () => {
           Bangladesh’s First Digital Garage – From Repairs to Resale.
         </h1>
         <p className="text-lg md:text-xl text-gray-700 max-w-xl">
-          HomeGarage is your all-in-one solution for managing your garage space.
-          Organize tools, track inventory, and control smart devices - all from
-          your pocket.
+          HomeGarage brings mechanics, spare parts, and vehicle buying & selling
+          into one seamless app experience. Book services, shop genuine parts,
+          and connect with verified sellers – all from your phone.
         </p>
 
         <div className="flex gap-4">

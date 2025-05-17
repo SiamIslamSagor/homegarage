@@ -36,7 +36,7 @@ export const MenuItem = ({
       <motion.p
         transition={{ duration: 0.3 }}
         className={cn(
-          "cursor-pointer duration-300 text-white hover:opacity-[0.9] border border-dashed border-transparent hover:border-white px-4 py-2 mx-2 rounded-full",
+          "cursor-pointer duration-300 text-white hover:opacity-[0.9] border border-dashed border-transparent hover:border-white px-4 py-2 mx---2 rounded-full",
           isScrolled ? "text-sm" : "text-base"
         )}
       >

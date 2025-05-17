@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation"; // To highlight active link
 import Image from "next/image";
 import logo from "@/app/assets/images/originalLogo.png"; // Adjust path if needed
@@ -123,10 +124,18 @@ function classNames(...classes: string[]) {
 
 const Sidebar = () => {
   const pathname = usePathname();
+  const router = useRouter();
   const [openDropdown, setOpenDropdown] = useState<string | null>("Survey");
 
   const toggleDropdown = (name: string) => {
     setOpenDropdown(openDropdown === name ? null : name);
+  };
+
+  const handleLogout = () => {
+    // Remove the authentication cookie
+    document.cookie =
+      "admin_authenticated=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    router.push("/admin/auth");
   };
 
   return (
@@ -218,6 +227,27 @@ const Sidebar = () => {
             </div>
           ))}
         </nav>
+      </div>
+      <div className="p-4 border-t border-gray-200">
+        <button
+          onClick={handleLogout}
+          className="w-full flex items-center px-2 py-2 text-sm font-medium text-red-600 hover:bg-red-50 hover:text-red-900 rounded-md transition-colors duration-200"
+        >
+          <svg
+            className="mr-3 flex-shrink-0 h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+            />
+          </svg>
+          Logout
+        </button>
       </div>
     </div>
   );

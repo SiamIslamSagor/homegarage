@@ -1,12 +1,19 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import Sidebar from "@/components/dashboard/Sidebar";
 import MobileNav from "@/components/dashboard/MobileNav";
 import { ReactNode, useState } from "react";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  // Don't show sidebar on auth page
+  if (pathname === "/admin/auth") {
+    return <>{children}</>;
+  }
 
   return (
     <div className="flex h-screen bg-gray-100">
