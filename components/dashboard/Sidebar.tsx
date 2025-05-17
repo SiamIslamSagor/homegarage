@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation"; // To highlight active link
 import Image from "next/image";
 import logo from "@/app/assets/images/originalLogo.png"; // Adjust path if needed
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
 // Define a type for Icon components
 type IconProps = {
@@ -86,24 +87,33 @@ const CogIcon: React.FC<IconProps> = ({ className, ...props }) => (
 
 const navigation = [
   {
-    name: "Overview",
-    href: "/admin",
+    name: "Back to Home",
+    href: "/",
     icon: HomeIcon as React.ElementType<IconProps>,
+  },
+
+  {
+    name: "Survey",
+    icon: ChartBarIcon as React.ElementType<IconProps>,
+    children: [
+      {
+        name: "Garage Owners",
+        href: "/admin/survey/garage-owners",
+      },
+      {
+        name: "Parts Shop Owners",
+        href: "/admin/survey/parts-shop-owners",
+      },
+      {
+        name: "Mechanics",
+        href: "/admin/survey/mechanics",
+      },
+    ],
   },
   {
     name: "Analytics",
     href: "/admin/analytics",
     icon: ChartBarIcon as React.ElementType<IconProps>,
-  },
-  {
-    name: "Users",
-    href: "/admin/users",
-    icon: UsersIcon as React.ElementType<IconProps>,
-  },
-  {
-    name: "Settings",
-    href: "/admin/settings",
-    icon: CogIcon as React.ElementType<IconProps>,
   },
 ];
 
@@ -113,6 +123,11 @@ function classNames(...classes: string[]) {
 
 const Sidebar = () => {
   const pathname = usePathname();
+  const [openDropdown, setOpenDropdown] = useState<string | null>("Survey");
+
+  const toggleDropdown = (name: string) => {
+    setOpenDropdown(openDropdown === name ? null : name);
+  };
 
   return (
     <div className="flex flex-grow flex-col overflow-y-auto border-r border-gray-200 bg-white pt-5 pb-4">
@@ -130,27 +145,77 @@ const Sidebar = () => {
       <div className="mt-5 flex flex-grow flex-col">
         <nav className="flex-1 space-y-1 px-2" aria-label="Sidebar">
           {navigation.map(item => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={classNames(
-                item.href === pathname
-                  ? "bg-indigo-100 text-indigo-900"
-                  : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
-                "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+            <div key={item.name}>
+              {item.children ? (
+                <>
+                  <button
+                    onClick={() => toggleDropdown(item.name)}
+                    className={classNames(
+                      "w-full group flex items-center px-2 py-2 text-sm font-medium rounded-md",
+                      pathname.includes("/admin/survey")
+                        ? "bg-indigo-100 text-indigo-900"
+                        : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                    )}
+                  >
+                    <item.icon
+                      className={classNames(
+                        pathname.includes("/admin/survey")
+                          ? "text-indigo-500"
+                          : "text-gray-400 group-hover:text-gray-500",
+                        "mr-3 flex-shrink-0 h-6 w-6"
+                      )}
+                      aria-hidden={true}
+                    />
+                    {item.name}
+                    <ChevronDownIcon
+                      className={classNames(
+                        "ml-auto h-5 w-5 transform transition-transform duration-200",
+                        openDropdown === item.name ? "rotate-180" : ""
+                      )}
+                    />
+                  </button>
+                  {openDropdown === item.name && (
+                    <div className="ml-8 mt-1 space-y-1">
+                      {item.children.map(child => (
+                        <Link
+                          key={child.name}
+                          href={child.href}
+                          className={classNames(
+                            child.href === pathname
+                              ? "bg-indigo-100 text-indigo-900"
+                              : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
+                            "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                          )}
+                        >
+                          {child.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </>
+              ) : (
+                <Link
+                  href={item.href}
+                  className={classNames(
+                    item.href === pathname
+                      ? "bg-indigo-100 text-indigo-900"
+                      : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
+                    "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                  )}
+                >
+                  <item.icon
+                    className={classNames(
+                      item.href === pathname
+                        ? "text-indigo-500"
+                        : "text-gray-400 group-hover:text-gray-500",
+                      "mr-3 flex-shrink-0 h-6 w-6"
+                    )}
+                    aria-hidden={true}
+                  />
+                  {item.name}
+                </Link>
               )}
-            >
-              <item.icon
-                className={classNames(
-                  item.href === pathname
-                    ? "text-indigo-500"
-                    : "text-gray-400 group-hover:text-gray-500",
-                  "mr-3 flex-shrink-0 h-6 w-6"
-                )}
-                aria-hidden={true}
-              />
-              {item.name}
-            </Link>
+            </div>
           ))}
         </nav>
       </div>

@@ -1,7 +1,7 @@
 import { MongoClient, Db } from "mongodb";
 
 const MONGODB_URI = process.env.MONGODB_URI;
-const MONGODB_DB = process.env.MONGODB_DB; // Optional: specify a default DB
+const MONGODB_DB = process.env.MONGODB_DB || "homegarage"; // Set default database name to "homegarage"
 
 if (!MONGODB_URI) {
   throw new Error(
@@ -26,7 +26,7 @@ export async function connectToDatabase() {
   try {
     await client.connect();
     console.log("Successfully connected to MongoDB.");
-    const db = client.db(MONGODB_DB); // Use default DB if specified, or you can specify DB per query
+    const db = client.db(MONGODB_DB); // Use "homegarage" as default database
 
     cachedClient = client;
     cachedDb = db;

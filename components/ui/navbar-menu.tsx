@@ -30,12 +30,13 @@ export const MenuItem = ({
   isScrolled: boolean;
   href?: string;
 }) => {
+  // console.log(children ? "true" : "false");
   return (
     <div onMouseEnter={() => setActive(item)} className="relative ">
       <motion.p
         transition={{ duration: 0.3 }}
         className={cn(
-          "cursor-pointer duration-300 text-white hover:opacity-[0.9]",
+          "cursor-pointer duration-300 text-white hover:opacity-[0.9] border border-dashed border-transparent hover:border-white px-4 py-2 mx-2 rounded-full",
           isScrolled ? "text-sm" : "text-base"
         )}
       >
@@ -47,17 +48,14 @@ export const MenuItem = ({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={transition}
         >
-          {active === item && (
+          {active === item && children && (
             <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4">
               <motion.div
                 transition={transition}
-                layoutId="active" // layoutId ensures smooth animation
+                layoutId="active"
                 className="bg-white  backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2]   shadow-xl"
               >
-                <motion.div
-                  layout // layout ensures smooth animation
-                  className="w-max h-full p-4"
-                >
+                <motion.div layout className="w-max h-full p-4">
                   {children}
                 </motion.div>
               </motion.div>
@@ -99,7 +97,7 @@ export const Menu = ({
           />
         </Link>
       </div>
-      <div className="flex justify-center space-x-4">{children}</div>
+      <div className="flex justify-center">{children}</div>
       <div>
         <Link
           href="/sign-up"

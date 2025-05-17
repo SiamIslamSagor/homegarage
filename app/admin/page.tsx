@@ -48,7 +48,7 @@ export default function AdminDashboardPage() {
   return (
     <div>
       <h1 className="text-2xl font-semibold text-gray-900">
-        Dashboard Overview
+        Dashboard Overview (This is demo page)
       </h1>
       <div className="mt-6">
         <dl className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
