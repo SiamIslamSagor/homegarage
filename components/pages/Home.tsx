@@ -49,7 +49,7 @@ const Home = () => {
       />
 
       {/* <NewNavbar /> */}
-      <NavbarDemo />
+      {/* <NavbarDemo /> */}
       {/* <Navbar /> */}
 
       {/* Main Content */}

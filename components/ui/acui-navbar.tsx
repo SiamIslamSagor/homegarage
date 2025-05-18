@@ -68,74 +68,78 @@ function Navbar({ className }: { className?: string }) {
     { name: "Home", href: "/" },
     {
       name: "Services",
-      href: "/services",
+      href: "#",
       subItems: [
         {
-          title: "Algochurn",
-          href: "https://algochurn.com",
-          description: "Prepare for tech interviews like never before.",
+          title: "Parts Store",
+          href: "#",
+          description:
+            "Order vehicle parts and accessories with home delivery.",
           src: "https://assets.aceternity.com/demos/algochurn.webp",
         },
         {
-          title: "Tailwind Master Kit",
-          href: "https://tailwindmasterkit.com",
-          description:
-            "Production ready Tailwind css components for your next project",
+          title: "Book a Mechanic",
+          href: "#",
+          description: "Get a professional mechanic at your doorstep.",
           src: "https://assets.aceternity.com/demos/tailwindmasterkit.webp",
         },
         {
-          title: "Moonbeam",
-          href: "https://gomoonbeam.com",
-          description:
-            "Never write from scratch again. Go from idea to blog in minutes.",
+          title: "Hire a Driver",
+          href: "#",
+          description: "Book reliable drivers anytime you need.",
           src: "https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png",
         },
         {
-          title: "Rogue",
-          href: "https://userogue.com",
-          description:
-            "Respond to government RFPs, RFIs and RFQs 10x faster using AI",
+          title: "Buy and Sell",
+          href: "#",
+          description: "Buy or sell vehicles and auto gear easily.",
+          src: "https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png",
+        },
+        {
+          title: "Emergency SOS",
+          href: "#",
+          description: "Quick help for roadside emergencies anytime.",
           src: "https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png",
         },
       ],
     },
     {
       name: "Business",
-      href: "/business",
+      href: "#",
       subItems: [
-        { title: "Web Development", href: "/web-dev" },
-        { title: "Interface Design", href: "/interface-design" },
-        { title: "Search Engine Optimization", href: "/seo" },
-        { title: "Branding", href: "/branding" },
+        { title: "Web Development", href: "#" },
+        { title: "Interface Design", href: "#" },
+        { title: "Search Engine Optimization", href: "#" },
+        { title: "Branding", href: "#" },
       ],
     },
     {
       name: "Blog",
-      href: "/blog",
+      href: "#",
       subItems: [
         {
           title: "Algochurn",
-          href: "https://algochurn.com",
+          href: "#",
           description: "Prepare for tech interviews like never before.",
           src: "https://assets.aceternity.com/demos/algochurn.webp",
         },
         {
           title: "Tailwind Master Kit",
-          href: "https://tailwindmasterkit.com",
+          href: "#",
           description:
             "Production ready Tailwind css components for your next project",
           src: "https://assets.aceternity.com/demos/tailwindmasterkit.webp",
         },
         {
           title: "Moonbeam",
-          href: "https://gomoonbeam.com",
+          href: "#",
           description:
             "Never write from scratch again. Go from idea to blog in minutes.",
           src: "https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png",
         },
         {
           title: "Rogue",
-          href: "https://userogue.com",
+          href: "#",
           description:
             "Respond to government RFPs, RFIs and RFQs 10x faster using AI",
           src: "https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png",
