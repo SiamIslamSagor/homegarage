@@ -1,17 +1,14 @@
 "use client";
+import logo from "@/app/assets/images/logo_white.png";
 import { cn } from "@/lib/utils";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import { AnimatePresence, motion } from "framer-motion";
+import { Pivot as Hamburger } from "hamburger-react";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "./navbar-menu";
-import {
-  Bars3Icon,
-  XMarkIcon,
-  ChevronDownIcon,
-} from "@heroicons/react/24/outline";
-import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
-import Image from "next/image";
-import logo from "@/app/assets/images/logo_white.png";
-import { Pivot as Hamburger } from "hamburger-react";
 
 interface ProductSubItem {
   title: string;
@@ -32,6 +29,15 @@ interface MenuItem {
 }
 
 export function NavbarDemo() {
+  const pathname = usePathname();
+
+  const isAuthPage =
+    pathname.includes("/sign-in") || pathname.includes("/sign-up");
+
+  if (isAuthPage) {
+    return null;
+  }
+
   return (
     <div className="relative w-full flex items-center justify-center">
       <Navbar className="top-2" />
