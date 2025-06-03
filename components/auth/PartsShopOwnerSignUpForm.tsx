@@ -175,7 +175,7 @@ const PartsShopOwnerSignUpForm = () => {
         />
 
         <FormField
-          label="Your Address"
+          label="Your Address (division, district, municipality, ward, street, house number)"
           id="address"
           type="text"
           placeholder="Enter your residential address"

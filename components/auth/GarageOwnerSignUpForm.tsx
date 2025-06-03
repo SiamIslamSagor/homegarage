@@ -214,7 +214,7 @@ const GarageOwnerSignUpForm = () => {
         />
 
         <FormField
-          label="Garage Address"
+          label="Garage Address (division, district, municipality, ward, street, house number)"
           id="garageAddress"
           type="text"
           placeholder="Enter the garage address"
