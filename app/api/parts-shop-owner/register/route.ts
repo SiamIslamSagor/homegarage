@@ -11,10 +11,10 @@ export async function POST(request: Request) {
       "name",
       "number",
       "address",
-      "ownerNIDImageUrl",
       "shopName",
       "shopAddress",
-      "shopTradeLicenseUrl",
+      "shopType",
+      "trifoldImageUrl",
     ];
     const missingFields = requiredFields.filter(
       field => !body[field as keyof PartsShopOwnerFormData]

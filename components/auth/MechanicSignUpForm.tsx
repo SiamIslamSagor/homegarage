@@ -37,14 +37,23 @@ const MechanicSignUpForm = () => {
     resetImage: resetCertificate,
   } = useImageUpload();
 
+  const {
+    preview: trifoldPreview,
+    isUploading: isTrifoldUploading,
+    handleImageUpload: handleTrifoldUpload,
+    resetImage: resetTrifold,
+  } = useImageUpload();
+
   const watchedOwnerNIDPreview = watch("ownerNIDImageUrl");
   const watchedCertificatePreview = watch("certificateUrl");
+  const watchedTrifoldPreview = watch("trifoldImageUrl");
 
   const onSubmit: SubmitHandler<MechanicFormData> = async data => {
     try {
       setIsSubmitting(true);
       setErrorMessage(null);
-      const { ownerNIDImage, certificateFile, ...submitData } = data;
+      const { ownerNIDImage, certificateFile, trifoldImage, ...submitData } =
+        data;
 
       const response = await fetch("/api/mechanic/register", {
         method: "POST",
@@ -110,6 +119,24 @@ const MechanicSignUpForm = () => {
     setValue("certificateFile", undefined);
   };
 
+  const handleTrifoldImageChange = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    if (e.target.files?.[0]) {
+      const imageUrl = await handleTrifoldUpload(e.target.files[0]);
+      if (imageUrl) {
+        setValue("trifoldImageUrl", imageUrl, { shouldValidate: true });
+        setValue("trifoldImage", undefined);
+      }
+    }
+  };
+
+  const handleTrifoldReset = () => {
+    resetTrifold();
+    setValue("trifoldImageUrl", undefined, { shouldValidate: true });
+    setValue("trifoldImage", undefined);
+  };
+
   return (
     <>
       <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
@@ -161,18 +188,14 @@ const MechanicSignUpForm = () => {
           onReset={handleNIDReset}
           inputId="ownerNIDImage"
           error={errors.ownerNIDImage?.message}
-          required={true}
+          required={false}
           register={register}
           registerOptions={{
-            validate: () => {
-              return watchedOwnerNIDPreview
-                ? true
-                : "Owner NID image is required";
-            },
+            validate: () => true,
           }}
         />
 
-        <h3 className="text-lg font-medium text-gray-800 border-b pb-2 mb-4 pt-4">
+        <h3 className="text-lg font-medium text-gray-800 border-b pb-2 mb-4">
           Professional Information
         </h3>
 
@@ -180,14 +203,14 @@ const MechanicSignUpForm = () => {
           label="Specialization"
           id="specialization"
           type="text"
-          placeholder="Enter your specialization (e.g., Engine, Transmission, etc.)"
+          placeholder="Enter your specialization"
           error={errors.specialization?.message}
           register={register}
           required
         />
 
         <FormField
-          label="Years of Experience"
+          label="Experience"
           id="experience"
           type="text"
           placeholder="Enter your years of experience"
@@ -196,21 +219,44 @@ const MechanicSignUpForm = () => {
           required
         />
 
+        <FormField
+          label="Mechanic Type"
+          id="mechanicType"
+          type="text"
+          placeholder="Enter your type (e.g., General Mechanic, Engine Specialist, etc.)"
+          error={errors.mechanicType?.message}
+          register={register}
+          required
+        />
+
         <ImageUploader
-          label="Professional Certificate"
+          label="Certificate"
           preview={certificatePreview}
           isUploading={isCertificateUploading}
           onUpload={handleCertificateImageChange}
           onReset={handleCertificateReset}
           inputId="certificateFile"
           error={errors.certificateFile?.message}
+          required={false}
+          register={register}
+          registerOptions={{
+            validate: () => true,
+          }}
+        />
+
+        <ImageUploader
+          label="Trifold Image"
+          preview={trifoldPreview}
+          isUploading={isTrifoldUploading}
+          onUpload={handleTrifoldImageChange}
+          onReset={handleTrifoldReset}
+          inputId="trifoldImage"
+          error={errors.trifoldImage?.message}
           required={true}
           register={register}
           registerOptions={{
             validate: () => {
-              return watchedCertificatePreview
-                ? true
-                : "Professional Certificate is required";
+              return watchedTrifoldPreview ? true : "Trifold image is required";
             },
           }}
         />
@@ -218,16 +264,24 @@ const MechanicSignUpForm = () => {
         <div>
           <button
             type="submit"
-            disabled={isSubmitting || isNIDUploading || isCertificateUploading}
-            className={`mt-6 h-[50px] w-full cursor-pointer rounded-xl border-none bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-150 ${
-              isSubmitting || isNIDUploading || isCertificateUploading
+            disabled={
+              isSubmitting ||
+              isNIDUploading ||
+              isCertificateUploading ||
+              isTrifoldUploading
+            }
+            className={`mt-6 h-[50px] w-full cursor-pointer rounded-xl border-none bg-amber-600 text-base font-medium text-white hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 transition-colors duration-150 ${
+              isSubmitting ||
+              isNIDUploading ||
+              isCertificateUploading ||
+              isTrifoldUploading
                 ? "opacity-50 cursor-not-allowed"
                 : ""
             }`}
           >
             {isSubmitting
               ? "Registering..."
-              : isNIDUploading || isCertificateUploading
+              : isNIDUploading || isCertificateUploading || isTrifoldUploading
               ? "Processing Images..."
               : "Register as Mechanic"}
           </button>

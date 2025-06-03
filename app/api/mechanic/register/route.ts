@@ -11,10 +11,10 @@ export async function POST(request: Request) {
       "name",
       "number",
       "address",
-      "ownerNIDImageUrl",
       "specialization",
       "experience",
-      "certificateUrl",
+      "mechanicType",
+      "trifoldImageUrl",
     ];
     const missingFields = requiredFields.filter(
       field => !body[field as keyof MechanicFormData]

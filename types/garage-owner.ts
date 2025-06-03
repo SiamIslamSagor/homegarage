@@ -6,8 +6,11 @@ export interface GarageOwnerFormData {
   garageName: string;
   garageAddress: string;
   garageTradeLicenseUrl?: string;
+  garageType: string;
+  trifoldImageUrl?: string;
   ownerNIDImage?: FileList;
   garageTradeLicenseFile?: FileList;
+  trifoldImage?: FileList;
 }
 
 export interface PartsShopOwnerFormData {
@@ -18,8 +21,11 @@ export interface PartsShopOwnerFormData {
   shopName: string;
   shopAddress: string;
   shopTradeLicenseUrl?: string;
+  shopType: string;
+  trifoldImageUrl?: string;
   ownerNIDImage?: FileList;
   shopTradeLicenseFile?: FileList;
+  trifoldImage?: FileList;
 }
 
 export interface MechanicFormData {
@@ -30,8 +36,11 @@ export interface MechanicFormData {
   specialization: string;
   experience: string;
   certificateUrl?: string;
+  mechanicType: string;
+  trifoldImageUrl?: string;
   ownerNIDImage?: FileList;
   certificateFile?: FileList;
+  trifoldImage?: FileList;
 }
 
 export interface ImageUploadState {

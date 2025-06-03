@@ -37,14 +37,27 @@ const GarageOwnerSignUpForm = () => {
     resetImage: resetLicense,
   } = useImageUpload();
 
+  const {
+    preview: trifoldPreview,
+    isUploading: isTrifoldUploading,
+    handleImageUpload: handleTrifoldUpload,
+    resetImage: resetTrifold,
+  } = useImageUpload();
+
   const watchedOwnerNIDPreview = watch("ownerNIDImageUrl");
   const watchedTradeLicensePreview = watch("garageTradeLicenseUrl");
+  const watchedTrifoldPreview = watch("trifoldImageUrl");
 
   const onSubmit: SubmitHandler<GarageOwnerFormData> = async data => {
     try {
       setIsSubmitting(true);
       setErrorMessage(null);
-      const { ownerNIDImage, garageTradeLicenseFile, ...submitData } = data;
+      const {
+        ownerNIDImage,
+        garageTradeLicenseFile,
+        trifoldImage,
+        ...submitData
+      } = data;
 
       const response = await fetch("/api/garage-owner/register", {
         method: "POST",
@@ -110,6 +123,24 @@ const GarageOwnerSignUpForm = () => {
     setValue("garageTradeLicenseFile", undefined);
   };
 
+  const handleTrifoldImageChange = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    if (e.target.files?.[0]) {
+      const imageUrl = await handleTrifoldUpload(e.target.files[0]);
+      if (imageUrl) {
+        setValue("trifoldImageUrl", imageUrl, { shouldValidate: true });
+        setValue("trifoldImage", undefined);
+      }
+    }
+  };
+
+  const handleTrifoldReset = () => {
+    resetTrifold();
+    setValue("trifoldImageUrl", undefined, { shouldValidate: true });
+    setValue("trifoldImage", undefined);
+  };
+
   return (
     <>
       <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
@@ -161,18 +192,14 @@ const GarageOwnerSignUpForm = () => {
           onReset={handleNIDReset}
           inputId="ownerNIDImage"
           error={errors.ownerNIDImage?.message}
-          required={true}
+          required={false}
           register={register}
           registerOptions={{
-            validate: () => {
-              return watchedOwnerNIDPreview
-                ? true
-                : "Owner NID image is required";
-            },
+            validate: () => true,
           }}
         />
 
-        <h3 className="text-lg font-medium text-gray-800 border-b pb-2 mb-4 pt-4">
+        <h3 className="text-lg font-medium text-gray-800 border-b pb-2 mb-4">
           Garage Information
         </h3>
 
@@ -196,6 +223,16 @@ const GarageOwnerSignUpForm = () => {
           required
         />
 
+        <FormField
+          label="Garage Type"
+          id="garageType"
+          type="text"
+          placeholder="Enter the type of garage (e.g., Auto Repair, Body Shop, etc.)"
+          error={errors.garageType?.message}
+          register={register}
+          required
+        />
+
         <ImageUploader
           label="Garage Trade License"
           preview={licensePreview}
@@ -204,13 +241,26 @@ const GarageOwnerSignUpForm = () => {
           onReset={handleLicenseReset}
           inputId="garageTradeLicenseFile"
           error={errors.garageTradeLicenseFile?.message}
+          required={false}
+          register={register}
+          registerOptions={{
+            validate: () => true,
+          }}
+        />
+
+        <ImageUploader
+          label="Trifold Image"
+          preview={trifoldPreview}
+          isUploading={isTrifoldUploading}
+          onUpload={handleTrifoldImageChange}
+          onReset={handleTrifoldReset}
+          inputId="trifoldImage"
+          error={errors.trifoldImage?.message}
           required={true}
           register={register}
           registerOptions={{
             validate: () => {
-              return watchedTradeLicensePreview
-                ? true
-                : "Garage Trade License is required";
+              return watchedTrifoldPreview ? true : "Trifold image is required";
             },
           }}
         />
@@ -218,16 +268,24 @@ const GarageOwnerSignUpForm = () => {
         <div>
           <button
             type="submit"
-            disabled={isSubmitting || isNIDUploading || isLicenseUploading}
+            disabled={
+              isSubmitting ||
+              isNIDUploading ||
+              isLicenseUploading ||
+              isTrifoldUploading
+            }
             className={`mt-6 h-[50px] w-full cursor-pointer rounded-xl border-none bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-colors duration-150 ${
-              isSubmitting || isNIDUploading || isLicenseUploading
+              isSubmitting ||
+              isNIDUploading ||
+              isLicenseUploading ||
+              isTrifoldUploading
                 ? "opacity-50 cursor-not-allowed"
                 : ""
             }`}
           >
             {isSubmitting
               ? "Registering..."
-              : isNIDUploading || isLicenseUploading
+              : isNIDUploading || isLicenseUploading || isTrifoldUploading
               ? "Processing Images..."
               : "Register as Garage Owner"}
           </button>
