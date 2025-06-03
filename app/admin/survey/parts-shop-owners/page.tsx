@@ -55,20 +55,40 @@ export default function PartsShopOwnersPage() {
     {
       header: "NID",
       accessor: "ownerNIDImageUrl",
-      render: (value: string) => (
-        <a
-          href={value}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-indigo-600 hover:text-indigo-900"
-        >
-          View NID
-        </a>
-      ),
+      render: (value: string) =>
+        value ? (
+          <a
+            href={value}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-indigo-600 hover:text-indigo-900"
+          >
+            View NID
+          </a>
+        ) : (
+          <span className="text-gray-500">Not provided</span>
+        ),
     },
     {
       header: "Trade License",
       accessor: "shopTradeLicenseUrl",
+      render: (value: string) =>
+        value ? (
+          <a
+            href={value}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-indigo-600 hover:text-indigo-900"
+          >
+            View License
+          </a>
+        ) : (
+          <span className="text-gray-500">Not provided</span>
+        ),
+    },
+    {
+      header: "Trifold Image",
+      accessor: "trifoldImageUrl",
       render: (value: string) => (
         <a
           href={value}
@@ -76,11 +96,15 @@ export default function PartsShopOwnersPage() {
           rel="noopener noreferrer"
           className="text-indigo-600 hover:text-indigo-900"
         >
-          View License
+          View Trifold
         </a>
       ),
     },
-    { header: "Registration Date", accessor: "createdAt" },
+    {
+      header: "Registration Date",
+      accessor: "createdAt",
+      render: (value: string) => new Date(value).toLocaleDateString(),
+    },
   ];
 
   if (isLoading) {

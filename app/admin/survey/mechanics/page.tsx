@@ -51,24 +51,45 @@ export default function MechanicsPage() {
     { header: "Address", accessor: "address" },
     { header: "Specialization", accessor: "specialization" },
     { header: "Experience", accessor: "experience" },
+    { header: "Mechanic Type", accessor: "mechanicType" },
     { header: "Status", accessor: "status" },
     {
       header: "NID",
       accessor: "ownerNIDImageUrl",
-      render: (value: string) => (
-        <a
-          href={value}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-indigo-600 hover:text-indigo-900"
-        >
-          View NID
-        </a>
-      ),
+      render: (value: string) =>
+        value ? (
+          <a
+            href={value}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-indigo-600 hover:text-indigo-900"
+          >
+            View NID
+          </a>
+        ) : (
+          <span className="text-gray-500">Not provided</span>
+        ),
     },
     {
       header: "Certificate",
       accessor: "certificateUrl",
+      render: (value: string) =>
+        value ? (
+          <a
+            href={value}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-indigo-600 hover:text-indigo-900"
+          >
+            View Certificate
+          </a>
+        ) : (
+          <span className="text-gray-500">Not provided</span>
+        ),
+    },
+    {
+      header: "Trifold Image",
+      accessor: "trifoldImageUrl",
       render: (value: string) => (
         <a
           href={value}
@@ -76,11 +97,15 @@ export default function MechanicsPage() {
           rel="noopener noreferrer"
           className="text-indigo-600 hover:text-indigo-900"
         >
-          View Certificate
+          View Trifold
         </a>
       ),
     },
-    { header: "Registration Date", accessor: "createdAt" },
+    {
+      header: "Registration Date",
+      accessor: "createdAt",
+      render: (value: string) => new Date(value).toLocaleDateString(),
+    },
   ];
 
   if (isLoading) {
