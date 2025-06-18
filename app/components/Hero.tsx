@@ -262,9 +262,9 @@ const Hero = () => {
       </div>
 
       {/* Right Content - iPhone Mockup */}
-      <div className=" relative max-md:">
+      {/* <div className=" relative max-md:">
         <IPhoneMockup />
-      </div>
+      </div> */}
     </div>
   );
 };

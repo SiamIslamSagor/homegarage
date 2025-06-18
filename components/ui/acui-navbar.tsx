@@ -81,31 +81,36 @@ function Navbar({ className }: { className?: string }) {
           href: "#",
           description:
             "Order vehicle parts and accessories with home delivery.",
-          src: "https://assets.aceternity.com/demos/algochurn.webp",
+          // src: "https://assets.aceternity.com/demos/algochurn.webp",
+          src: "https://picsum.photos/140/70",
         },
         {
           title: "Book a Mechanic",
           href: "#",
           description: "Get a professional mechanic at your doorstep.",
-          src: "https://assets.aceternity.com/demos/tailwindmasterkit.webp",
+          // src: "https://assets.aceternity.com/demos/tailwindmasterkit.webp",
+          src: "https://picsum.photos/140/70",
         },
         {
           title: "Hire a Driver",
           href: "#",
           description: "Book reliable drivers anytime you need.",
-          src: "https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png",
+          // src: "https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png",
+          src: "https://picsum.photos/140/70",
         },
         {
           title: "Buy and Sell",
           href: "#",
           description: "Buy or sell vehicles and auto gear easily.",
-          src: "https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png",
+          // src: "https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png",
+          src: "https://picsum.photos/140/70",
         },
         {
           title: "Emergency SOS",
           href: "#",
           description: "Quick help for roadside emergencies anytime.",
-          src: "https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png",
+          // src: "https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png",
+          src: "https://picsum.photos/140/70",
         },
       ],
     },
@@ -122,35 +127,35 @@ function Navbar({ className }: { className?: string }) {
     {
       name: "Blog",
       href: "#",
-      subItems: [
-        {
-          title: "Algochurn",
-          href: "#",
-          description: "Prepare for tech interviews like never before.",
-          src: "https://assets.aceternity.com/demos/algochurn.webp",
-        },
-        {
-          title: "Tailwind Master Kit",
-          href: "#",
-          description:
-            "Production ready Tailwind css components for your next project",
-          src: "https://assets.aceternity.com/demos/tailwindmasterkit.webp",
-        },
-        {
-          title: "Moonbeam",
-          href: "#",
-          description:
-            "Never write from scratch again. Go from idea to blog in minutes.",
-          src: "https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png",
-        },
-        {
-          title: "Rogue",
-          href: "#",
-          description:
-            "Respond to government RFPs, RFIs and RFQs 10x faster using AI",
-          src: "https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png",
-        },
-      ],
+      // subItems: [
+      //   {
+      //     title: "Algochurn",
+      //     href: "#",
+      //     description: "Prepare for tech interviews like never before.",
+      //     src: "https://assets.aceternity.com/demos/algochurn.webp",
+      //   },
+      //   {
+      //     title: "Tailwind Master Kit",
+      //     href: "#",
+      //     description:
+      //       "Production ready Tailwind css components for your next project",
+      //     src: "https://assets.aceternity.com/demos/tailwindmasterkit.webp",
+      //   },
+      //   {
+      //     title: "Moonbeam",
+      //     href: "#",
+      //     description:
+      //       "Never write from scratch again. Go from idea to blog in minutes.",
+      //     src: "https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png",
+      //   },
+      //   {
+      //     title: "Rogue",
+      //     href: "#",
+      //     description:
+      //       "Respond to government RFPs, RFIs and RFQs 10x faster using AI",
+      //     src: "https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png",
+      //   },
+      // ],
     },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
