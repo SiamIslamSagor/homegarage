@@ -64,28 +64,22 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-gray-900">Quick Links</h3>
             <ul className="space-y-2">
+             
+             
               <li>
                 <Link
-                  href="/features"
+                  href="https://play.google.com/store/apps"
                   className="text-gray-600 hover:text-gray-900 text-sm"
                 >
-                  Features
+                  Play store
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/pricing"
+                  href="https://apps.apple.com/us/app"
                   className="text-gray-600 hover:text-gray-900 text-sm"
                 >
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/download"
-                  className="text-gray-600 hover:text-gray-900 text-sm"
-                >
-                  Download App
+                  App store
                 </Link>
               </li>
               <li>
@@ -99,46 +93,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Features */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-gray-900">
-              Key Features
-            </h3>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/features/tools"
-                  className="text-gray-600 hover:text-gray-900 text-sm"
-                >
-                  Tool Organization
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/features/inventory"
-                  className="text-gray-600 hover:text-gray-900 text-sm"
-                >
-                  Inventory Tracking
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/features/smart"
-                  className="text-gray-600 hover:text-gray-900 text-sm"
-                >
-                  Smart Device Control
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/features/mobile"
-                  className="text-gray-600 hover:text-gray-900 text-sm"
-                >
-                  Mobile App
-                </Link>
-              </li>
-            </ul>
-          </div>
+          
 
           {/* Contact */}
           <div className="space-y-4">

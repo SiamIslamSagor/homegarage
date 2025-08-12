@@ -88,7 +88,7 @@ const Hero = () => {
 
         <div className="flex gap-4">
           <a
-            href="http://localhost:3000"
+            href="https://play.google.com/store/apps"
             target="_blank"
             className="me-1 text-light"
             aria-label="Get HomeGarage app on Google Play"
@@ -226,7 +226,7 @@ const Hero = () => {
             </svg>
           </a>
           <a
-            href="http://localhost:3000/"
+            href="https://apps.apple.com/us/app"
             target="_blank"
             className="text-light"
             aria-label="Get HomeGarage app on App Store"
@@ -262,9 +262,9 @@ const Hero = () => {
       </div>
 
       {/* Right Content - iPhone Mockup */}
-      {/* <div className=" relative max-md:">
+      <div className=" relative max-md:">
         <IPhoneMockup />
-      </div> */}
+      </div>
     </div>
   );
 };

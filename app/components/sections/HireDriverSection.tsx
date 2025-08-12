@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const HireDriverSection = () => {
   return (
@@ -185,9 +186,9 @@ const HireDriverSection = () => {
             className="text-center lg:text-left order-1 lg:order-2"
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">
-              Hire a{" "}
+              
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
-                Professional Driver
+                Pro Driver
               </span>
             </h2>
             <p className="text-lg text-gray-700 mb-8 max-w-xl mx-auto lg:mx-0">
@@ -201,14 +202,18 @@ const HireDriverSection = () => {
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-white font-medium"
               >
-                Hire Now
+                <Link href="https://play.google.com/store/apps" target="_blank">
+                  Hire Now
+                </Link>
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-white rounded-full text-purple-600 font-medium border border-purple-200 hover:border-purple-300"
               >
-                Learn More
+                <Link href="https://apps.apple.com/us/app" target="_blank">
+                  Learn More
+                </Link>
               </motion.button>
             </div>
           </motion.div>

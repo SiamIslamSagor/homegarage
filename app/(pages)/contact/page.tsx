@@ -30,7 +30,7 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-7xl mx-auto">
+        <div className="flex items-center justify-center gap-12 max-w-7xl mx-auto">
           {/* Contact Information */}
           <div className="bg-blue-700 rounded-2xl p-8 text-white">
             <h2 className="text-2xl font-bold mb-6">Get in Touch</h2>
@@ -61,7 +61,7 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-semibold">Our Location</h3>
                   <p className="text-blue-100">
-                    123 Garage Street, Auto City, AC 12345
+                  Rani Bazar, Rajshahi Sadar, Rajshahi, Bangladesh
                   </p>
                 </div>
               </div>
@@ -84,7 +84,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="font-semibold">Email Us</h3>
-                  <p className="text-blue-100">info@homegarage.com</p>
+                  <p className="text-blue-100">info@homegaragebd.com</p>
                 </div>
               </div>
 
@@ -106,7 +106,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="font-semibold">Call Us</h3>
-                  <p className="text-blue-100">(555) 123-4567</p>
+                  <p className="text-blue-100">(+880) 1618-511249</p>
                 </div>
               </div>
             </div>
@@ -122,7 +122,7 @@ export default function ContactPage() {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
+          {/* <div className="bg-white rounded-2xl p-8 shadow-lg">
             <h2 className="text-2xl font-bold mb-6 text-gray-900">
               Send us a Message
             </h2>
@@ -209,7 +209,7 @@ export default function ContactPage() {
                 Send Message
               </button>
             </form>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

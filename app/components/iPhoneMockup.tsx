@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
-import appScreenshot from "@/app/assets/images/page.jpg";
+import appScreenshot from "@/app/assets/images/hg_app_screen.jpg";
 import { motion } from "framer-motion";
 
 const IPhoneMockup = () => {

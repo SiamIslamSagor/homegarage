@@ -98,16 +98,7 @@ export const Menu = ({
         </Link>
       </div>
       <div className="flex justify-center">{children}</div>
-      <div>
-        <Link
-          href="/sign-up"
-          className={`bg-white text-blue-600 ml-4 font-medium hover:bg-blue-50 transition-all duration-300 text-base rounded-full ${
-            isScrolled ? "px-5 py-3 text-sm" : "px-8 py-4 text-base"
-          }`}
-        >
-          Register
-        </Link>
-      </div>
+      <div className="w-10 h-10 bg-transparent" />
     </nav>
   );
 };
@@ -127,8 +118,8 @@ export const ProductItem = ({
     <a href={href} className="flex space-x-2">
       <img
         src={src}
-        width={140}
-        height={70}
+        width={80}
+        height={42}
         alt={title}
         className="shrink-0 rounded-md shadow-2xl"
       />

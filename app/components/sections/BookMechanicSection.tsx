@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const BookMechanicSection = () => {
   return (
@@ -96,9 +97,9 @@ const BookMechanicSection = () => {
             className="text-center lg:text-left"
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">
-              Book a{" "}
+              
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
-                Professional Mechanic
+                Fix-mate
               </span>
             </h2>
             <p className="text-lg text-gray-700 mb-8 max-w-xl mx-auto lg:mx-0">
@@ -111,14 +112,18 @@ const BookMechanicSection = () => {
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full text-white font-medium"
               >
-                Book Now
+                <Link href="https://play.google.com/store/apps" target="_blank">
+                  Book Now
+                </Link>
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-white rounded-full text-blue-600 font-medium border border-blue-200 hover:border-blue-300"
               >
-                Learn More
+                <Link href="https://apps.apple.com/us/app" target="_blank">
+                  Learn More
+                </Link>
               </motion.button>
             </div>
           </motion.div>

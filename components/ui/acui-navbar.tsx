@@ -4,17 +4,23 @@ import { cn } from "@/lib/utils";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { AnimatePresence, motion } from "framer-motion";
 import { Pivot as Hamburger } from "hamburger-react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "./navbar-menu";
+import fixmate from "@/app/assets/images/services_img/fixmate.png";
+import partsHub from "@/app/assets/images/services_img/partshub.png";
+import proDriver from "@/app/assets/images/services_img/prodiver.png";
+import autoBazar from "@/app/assets/images/services_img/autobazar.png";
+import garageSOS from "@/app/assets/images/services_img/garagesos.png";
+
 
 interface ProductSubItem {
   title: string;
   href: string;
   description: string;
-  src: string;
+  src: StaticImageData;
 }
 
 interface SimpleSubItem {
@@ -77,89 +83,40 @@ function Navbar({ className }: { className?: string }) {
       href: "#",
       subItems: [
         {
-          title: "Parts Store",
+          title: "Parts-Hub",
           href: "#",
           description:
             "Order vehicle parts and accessories with home delivery.",
-          // src: "https://assets.aceternity.com/demos/algochurn.webp",
-          src: "https://picsum.photos/140/70",
+          src: partsHub,
         },
         {
-          title: "Book a Mechanic",
+          title: "Fix-mate",
           href: "#",
           description: "Get a professional mechanic at your doorstep.",
-          // src: "https://assets.aceternity.com/demos/tailwindmasterkit.webp",
-          src: "https://picsum.photos/140/70",
+          src: fixmate,
         },
         {
-          title: "Hire a Driver",
+          title: "Pro Driver",
           href: "#",
           description: "Book reliable drivers anytime you need.",
-          // src: "https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png",
-          src: "https://picsum.photos/140/70",
+          src: proDriver,
         },
         {
-          title: "Buy and Sell",
+          title: "Auto bazar",
           href: "#",
           description: "Buy or sell vehicles and auto gear easily.",
-          // src: "https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png",
-          src: "https://picsum.photos/140/70",
+          src: autoBazar,
         },
         {
-          title: "Emergency SOS",
+          title: "Garage SOS",
           href: "#",
           description: "Quick help for roadside emergencies anytime.",
-          // src: "https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png",
-          src: "https://picsum.photos/140/70",
+          src: garageSOS,
         },
       ],
-    },
-    {
-      name: "Business",
-      href: "#",
-      subItems: [
-        { title: "Web Development", href: "#" },
-        { title: "Interface Design", href: "#" },
-        { title: "Search Engine Optimization", href: "#" },
-        { title: "Branding", href: "#" },
-      ],
-    },
-    {
-      name: "Blog",
-      href: "#",
-      // subItems: [
-      //   {
-      //     title: "Algochurn",
-      //     href: "#",
-      //     description: "Prepare for tech interviews like never before.",
-      //     src: "https://assets.aceternity.com/demos/algochurn.webp",
-      //   },
-      //   {
-      //     title: "Tailwind Master Kit",
-      //     href: "#",
-      //     description:
-      //       "Production ready Tailwind css components for your next project",
-      //     src: "https://assets.aceternity.com/demos/tailwindmasterkit.webp",
-      //   },
-      //   {
-      //     title: "Moonbeam",
-      //     href: "#",
-      //     description:
-      //       "Never write from scratch again. Go from idea to blog in minutes.",
-      //     src: "https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png",
-      //   },
-      //   {
-      //     title: "Rogue",
-      //     href: "#",
-      //     description:
-      //       "Respond to government RFPs, RFIs and RFQs 10x faster using AI",
-      //     src: "https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png",
-      //   },
-      // ],
     },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
-    // { name: "Admin", href: "/admin" },
   ];
 
   const isProductSubItem = (
@@ -197,38 +154,13 @@ function Navbar({ className }: { className?: string }) {
                             key={subItem.title}
                             title={subItem.title}
                             href={subItem.href}
-                            src={subItem.src}
+                            src={subItem.src.src}
                             description={subItem.description}
                           />
                         )
                     )}
                   </div>
-                )}
-                {item.name === "Business" && (
-                  <div className="flex flex-col space-y-4 text-sm">
-                    {item.subItems?.map(subItem => (
-                      <HoveredLink key={subItem.title} href={subItem.href}>
-                        {subItem.title}
-                      </HoveredLink>
-                    ))}
-                  </div>
-                )}
-                {item.name === "Blog" && (
-                  <div className="text-sm grid grid-cols-2 gap-10 p-4">
-                    {item.subItems?.map(
-                      subItem =>
-                        isProductSubItem(subItem) && (
-                          <ProductItem
-                            key={subItem.title}
-                            title={subItem.title}
-                            href={subItem.href}
-                            src={subItem.src}
-                            description={subItem.description}
-                          />
-                        )
-                    )}
-                  </div>
-                )}
+                )}       
               </MenuItem>
             ))}
           </Menu>
@@ -327,7 +259,7 @@ function Navbar({ className }: { className?: string }) {
                                 <div className="flex items-start space-x-3">
                                   {isProductSubItem(subItem) && (
                                     <img
-                                      src={subItem.src}
+                                      src={subItem.src.src}
                                       alt={subItem.title}
                                       className="w-12 h-12 rounded-md object-cover"
                                     />
@@ -350,13 +282,6 @@ function Navbar({ className }: { className?: string }) {
                       </AnimatePresence>
                     </div>
                   ))}
-                  <a
-                    href="/sign-up"
-                    className="mt-4 bg-white text-blue-700 text-lg py-2 px-4 rounded-lg hover:bg-blue-50 transition-colors text-center font-medium"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Register
-                  </a>
                 </div>
               </div>
             </motion.div>

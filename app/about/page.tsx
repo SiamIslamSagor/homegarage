@@ -4,6 +4,9 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
 // import aboutImage from "@/app/assets/images/about-hero.jpg";
+import ashiqur from "@/app/assets/images/team/ashik.jpg";
+import tushar from "@/app/assets/images/team/tushar.jpg";
+import moushumi from "@/app/assets/images/team/mousumi.jpg";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -94,19 +97,29 @@ export default function AboutPage() {
 
   const faqs = [
     {
-      question: "What makes HomeGarage different from other auto repair shops?",
+      question: "What is HomeGarage?",
       answer:
-        "We combine cutting-edge technology with decades of experience. Our certified technicians use state-of-the-art diagnostic equipment and follow rigorous quality control processes. Plus, we offer transparent pricing and detailed explanations of all repairs.",
+        "HomeGarage is a digital marketplace that connects car owners with verified mechanics, drivers, and auto parts sellers. We offer on-demand car services, emergency roadside assistance, and a platform to buy/sell new or used car parts.",
     },
     {
-      question: "Do you offer warranty on repairs?",
+      question: "How do I register as a customer?",
       answer:
-        "Yes, we provide a comprehensive warranty on all our repairs. Parts and labor are covered for 12 months or 12,000 miles, whichever comes first. We stand behind our work with confidence.",
+        "Download the HomeGarage Customer App, sign up with your mobile number, and complete your profile.",
     },
     {
-      question: "How long does a typical service take?",
+      question: "How can I join as a service provider?",
       answer:
-        "Service duration varies depending on the type of repair needed. Routine maintenance might take a few hours, while more complex repairs could take 1-2 days. We always provide accurate time estimates before beginning work.",
+        "Download the HomeGarage Provider App. Select your category (Mechanic/Driver/Garage/Store). Submit required documents (NID, license, trade license). Get verified within 24 hours.",
+    },
+    {
+      question: "What documents do I need to register?",
+      answer:
+        "Mechanics: NID, experience certificate (if any). Drivers: NID, valid driving license. Garages/Stores: Trade license, TIN, bank account details.",
+    },
+    {
+      question: "How do I get paid?",
+      answer:
+        "Payments are transferred weekly to your bKash/bank account after a 15% platform fee deduction.",
     },
   ];
 
@@ -215,25 +228,22 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
               {
-                name: "John Smith",
-                role: "Master Technician",
+                name: "Ashiqur Rahman",
+                role: "Founder & CEO",
                 image:
-                  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
-                expertise: "20+ years in European vehicles",
+                  ashiqur,  
               },
               {
-                name: "Sarah Johnson",
-                role: "Service Manager",
+                name: "Md. Tusar Molla",
+                role: "Project Manager",
                 image:
-                  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
-                expertise: "Customer service excellence",
+                  tushar,
               },
               {
-                name: "Mike Wilson",
-                role: "Diagnostic Specialist",
+                name: "Mousumi Ferdouse",
+                role: "Graphic Designer",
                 image:
-                  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
-                expertise: "Advanced electrical systems",
+                  moushumi,
               },
             ].map((member, index) => (
               <motion.div
@@ -247,15 +257,15 @@ export default function AboutPage() {
                     src={member.image}
                     alt={member.name}
                     fill
-                    className="rounded-full object-cover transition-transform group-hover:scale-105"
+                    className="rounded-full object-cover transition-transform group-hover:scale-105 absolute bottom-4"
                   />
-                  <div className="absolute inset-0 bg-blue-600 bg-opacity-0 group-hover:bg-opacity-20 rounded-full transition-all duration-300" />
+                  {/* <div className="absolute inset-0 bg-blue-600 bg-opacity-0 group-hover:bg-opacity-20 rounded-full transition-all duration-300" /> */}
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-900">
                   {member.name}
                 </h3>
                 <p className="text-blue-600 font-medium mb-2">{member.role}</p>
-                <p className="text-gray-600 text-sm">{member.expertise}</p>
+                {/* <p className="text-gray-600 text-sm">{member.expertise}</p> */}
               </motion.div>
             ))}
           </div>

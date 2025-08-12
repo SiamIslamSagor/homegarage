@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const PartsStoreSection = () => {
   return (
@@ -122,9 +123,9 @@ const PartsStoreSection = () => {
             className="text-center lg:text-left max-lg:order-1"
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">
-              Auto{" "}
+              
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600">
-                Parts Store
+                Parts-Hub
               </span>
             </h2>
             <p className="text-lg text-gray-700 mb-8 max-w-xl mx-auto lg:mx-0">
@@ -138,14 +139,18 @@ const PartsStoreSection = () => {
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full text-white font-medium"
               >
-                Shop Now
+                <Link href="https://play.google.com/store/apps" target="_blank">
+                  Shop Now
+                </Link>
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-white rounded-full text-green-600 font-medium border border-green-200 hover:border-green-300"
               >
-                Browse Catalog
+                <Link href="https://apps.apple.com/us/app" target="_blank">
+                  Browse Catalog
+                </Link>
               </motion.button>
             </div>
           </motion.div>
